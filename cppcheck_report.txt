@@ -1,0 +1,590 @@
+default/be_modtab.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+default/berry.c:214:28: style: Clarify calculation precedence for '&' and '?'. [clarifyCalculation]
+    int res = args & arg_e ? /* check script source string */
+                           ^
+src/be_api.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_api.c:768:13: style: The scope of the variable 'uv' can be reduced. [variableScope]
+    bvalue *uv, *top = be_incrtop(vm);
+            ^
+src/be_api.c:783:13: style: The scope of the variable 'uv' can be reduced. [variableScope]
+    bvalue *uv, *v = be_indexof(vm, -1);
+            ^
+src/be_baselib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_bytecode.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 24 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_byteslib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_byteslib.c:561:34: style: Condition 'size_arg<0' is always false [knownConditionTrueFalse]
+            attr.len = (size_arg < 0) ? -size_arg : size_arg;
+                                 ^
+src/be_byteslib.c:560:13: note: Assuming condition 'size_arg' is true
+        if (size_arg) {
+            ^
+src/be_byteslib.c:561:34: note: Condition 'size_arg<0' is always false
+            attr.len = (size_arg < 0) ? -size_arg : size_arg;
+                                 ^
+src/be_byteslib.c:868:25: style: Condition 'be' is always false [knownConditionTrueFalse]
+        int32_t ret_i = be ? buf_get4_be(&attr, idx) : buf_get4_le(&attr, idx);
+                        ^
+src/be_byteslib.c:864:20: note: Assignment 'be=0', assigned value is 0
+        bbool be = bfalse;             /* little endian? */
+                   ^
+src/be_byteslib.c:868:25: note: Condition 'be' is always false
+        int32_t ret_i = be ? buf_get4_be(&attr, idx) : buf_get4_le(&attr, idx);
+                        ^
+src/be_byteslib.c:944:13: style: Condition 'be' is always false [knownConditionTrueFalse]
+        if (be) { buf_set4_be(&attr, idx, *val_i); } else { buf_set4_le(&attr, idx, *val_i); }
+            ^
+src/be_byteslib.c:940:20: note: Assignment 'be=0', assigned value is 0
+        bbool be = bfalse;
+                   ^
+src/be_byteslib.c:944:13: note: Condition 'be' is always false
+        if (be) { buf_set4_be(&attr, idx, *val_i); } else { buf_set4_le(&attr, idx, *val_i); }
+            ^
+src/be_byteslib.c:1329:18: style: Condition 'from<0' is always false [knownConditionTrueFalse]
+        if (from < 0) { from = 0; }
+                 ^
+src/be_byteslib.c:1323:24: note: Assignment 'from=0', assigned value is 0
+        int32_t from = 0;                       // skip x chars
+                       ^
+src/be_byteslib.c:1329:18: note: Condition 'from<0' is always false
+        if (from < 0) { from = 0; }
+                 ^
+src/be_byteslib.c:869:24: portability: Casting between signed int * and float * which have an incompatible binary data representation. [invalidPointerCast]
+        float* ret_f = (float*) &ret_i;
+                       ^
+src/be_byteslib.c:939:26: portability: Casting from float * to signed int * is not portable due to different binary data representations on different platforms. [invalidPointerCast]
+        int32_t* val_i = (int32_t*) &val_f;
+                         ^
+src/be_byteslib.c:426:13: style: The scope of the variable 'val' can be reduced. [variableScope]
+    uint8_t val;
+            ^
+src/be_byteslib.c:688:9: style: The scope of the variable 'truncated' can be reduced. [variableScope]
+    int truncated = 0;
+        ^
+src/be_byteslib.c:1417:53: style:inconclusive: Function 'be_pushbytes' argument 2 names different: declaration 'buf' definition 'bytes'. [funcArgNamesDifferent]
+BERRY_API void * be_pushbytes(bvm *vm, const void * bytes, size_t len)
+                                                    ^
+src/berry.h:2248:51: note: Function 'be_pushbytes' argument 2 names different: declaration 'buf' definition 'bytes'.
+BERRY_API void* be_pushbytes(bvm *vm, const void *buf, size_t len);
+                                                  ^
+src/be_byteslib.c:1417:53: note: Function 'be_pushbytes' argument 2 names different: declaration 'buf' definition 'bytes'.
+BERRY_API void * be_pushbytes(bvm *vm, const void * bytes, size_t len)
+                                                    ^
+src/be_byteslib.c:1434:47: style:inconclusive: Function 'be_tobytes' argument 2 names different: declaration 'index' definition 'rel_index'. [funcArgNamesDifferent]
+BERRY_API const void *be_tobytes(bvm *vm, int rel_index, size_t *len)
+                                              ^
+src/berry.h:2263:47: note: Function 'be_tobytes' argument 2 names different: declaration 'index' definition 'rel_index'.
+BERRY_API const void* be_tobytes(bvm *vm, int index, size_t *len);
+                                              ^
+src/be_byteslib.c:1434:47: note: Function 'be_tobytes' argument 2 names different: declaration 'index' definition 'rel_index'.
+BERRY_API const void *be_tobytes(bvm *vm, int rel_index, size_t *len)
+                                              ^
+src/be_byteslib.c:1447:41: style:inconclusive: Function 'be_isbytes' argument 2 names different: declaration 'index' definition 'rel_index'. [funcArgNamesDifferent]
+BERRY_API bbool be_isbytes(bvm *vm, int rel_index)
+                                        ^
+src/berry.h:1190:41: note: Function 'be_isbytes' argument 2 names different: declaration 'index' definition 'rel_index'.
+BERRY_API bbool be_isbytes(bvm *vm, int index);
+                                        ^
+src/be_byteslib.c:1447:41: note: Function 'be_isbytes' argument 2 names different: declaration 'index' definition 'rel_index'.
+BERRY_API bbool be_isbytes(bvm *vm, int rel_index)
+                                        ^
+src/be_class.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 19 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_class.c:291:21: style: Condition 'obj' is always true [knownConditionTrueFalse]
+                if (obj && var_type(dst) == MT_VARIABLE) {
+                    ^
+src/be_class.c:283:17: note: Assuming that condition 'obj' is not redundant
+            if (obj && basetype(var_type(vm->top)) == BE_FUNCTION) {
+                ^
+src/be_class.c:291:21: note: Condition 'obj' is always true
+                if (obj && var_type(dst) == MT_VARIABLE) {
+                    ^
+src/be_class.c:246:51: style:inconclusive: Function 'be_instance_member_simple' argument 2 names different: declaration 'obj' definition 'instance'. [funcArgNamesDifferent]
+int be_instance_member_simple(bvm *vm, binstance *instance, bstring *name, bvalue *dst)
+                                                  ^
+src/be_class.h:64:51: note: Function 'be_instance_member_simple' argument 2 names different: declaration 'obj' definition 'instance'.
+int be_instance_member_simple(bvm *vm, binstance *obj, bstring *name, bvalue *dst);
+                                                  ^
+src/be_class.c:246:51: note: Function 'be_instance_member_simple' argument 2 names different: declaration 'obj' definition 'instance'.
+int be_instance_member_simple(bvm *vm, binstance *instance, bstring *name, bvalue *dst)
+                                                  ^
+src/be_class.c:263:44: style:inconclusive: Function 'be_instance_member' argument 2 names different: declaration 'obj' definition 'instance'. [funcArgNamesDifferent]
+int be_instance_member(bvm *vm, binstance *instance, bstring *name, bvalue *dst)
+                                           ^
+src/be_class.h:65:44: note: Function 'be_instance_member' argument 2 names different: declaration 'obj' definition 'instance'.
+int be_instance_member(bvm *vm, binstance *obj, bstring *name, bvalue *dst);
+                                           ^
+src/be_class.c:263:44: note: Function 'be_instance_member' argument 2 names different: declaration 'obj' definition 'instance'.
+int be_instance_member(bvm *vm, binstance *instance, bstring *name, bvalue *dst)
+                                           ^
+src/be_class.c:320:49: style:inconclusive: Function 'be_instance_setmember' argument 2 names different: declaration 'obj' definition 'o'. [funcArgNamesDifferent]
+bbool be_instance_setmember(bvm *vm, binstance *o, bstring *name, bvalue *src)
+                                                ^
+src/be_class.h:66:49: note: Function 'be_instance_setmember' argument 2 names different: declaration 'obj' definition 'o'.
+bbool be_instance_setmember(bvm *vm, binstance *obj, bstring *name, bvalue *src);
+                                                ^
+src/be_class.c:320:49: note: Function 'be_instance_setmember' argument 2 names different: declaration 'obj' definition 'o'.
+bbool be_instance_setmember(bvm *vm, binstance *o, bstring *name, bvalue *src)
+                                                ^
+src/be_class.c:362:43: style:inconclusive: Function 'be_class_setmember' argument 2 names different: declaration 'obj' definition 'o'. [funcArgNamesDifferent]
+bbool be_class_setmember(bvm *vm, bclass *o, bstring *name, bvalue *src)
+                                          ^
+src/be_class.h:60:43: note: Function 'be_class_setmember' argument 2 names different: declaration 'obj' definition 'o'.
+bbool be_class_setmember(bvm *vm, bclass *obj, bstring *name, bvalue *src);
+                                          ^
+src/be_class.c:362:43: note: Function 'be_class_setmember' argument 2 names different: declaration 'obj' definition 'o'.
+bbool be_class_setmember(bvm *vm, bclass *o, bstring *name, bvalue *src)
+                                          ^
+src/be_code.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_code.c:204:30: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+    jture ? (e->f = NO_JUMP) : (e->t = NO_JUMP);
+                             ^
+src/be_code.c:198:58: style:inconclusive: Function 'be_code_jumpbool' argument 3 names different: declaration 'jumptrue' definition 'jture'. [funcArgNamesDifferent]
+void be_code_jumpbool(bfuncinfo *finfo, bexpdesc *e, int jture)
+                                                         ^
+src/be_code.h:23:58: note: Function 'be_code_jumpbool' argument 3 names different: declaration 'jumptrue' definition 'jture'.
+void be_code_jumpbool(bfuncinfo *finfo, bexpdesc *e, int jumptrue);
+                                                         ^
+src/be_code.c:198:58: note: Function 'be_code_jumpbool' argument 3 names different: declaration 'jumptrue' definition 'jture'.
+void be_code_jumpbool(bfuncinfo *finfo, bexpdesc *e, int jture)
+                                                         ^
+src/be_code.c:833:49: style:inconclusive: Function 'be_code_member' argument 2 names different: declaration 'e1' definition 'c'. [funcArgNamesDifferent]
+void be_code_member(bfuncinfo *finfo, bexpdesc *c, bexpdesc *k)
+                                                ^
+src/be_code.h:35:49: note: Function 'be_code_member' argument 2 names different: declaration 'e1' definition 'c'.
+void be_code_member(bfuncinfo *finfo, bexpdesc *e1, bexpdesc *e2);
+                                                ^
+src/be_code.c:833:49: note: Function 'be_code_member' argument 2 names different: declaration 'e1' definition 'c'.
+void be_code_member(bfuncinfo *finfo, bexpdesc *c, bexpdesc *k)
+                                                ^
+src/be_code.c:833:62: style:inconclusive: Function 'be_code_member' argument 3 names different: declaration 'e2' definition 'k'. [funcArgNamesDifferent]
+void be_code_member(bfuncinfo *finfo, bexpdesc *c, bexpdesc *k)
+                                                             ^
+src/be_code.h:35:63: note: Function 'be_code_member' argument 3 names different: declaration 'e2' definition 'k'.
+void be_code_member(bfuncinfo *finfo, bexpdesc *e1, bexpdesc *e2);
+                                                              ^
+src/be_code.c:833:62: note: Function 'be_code_member' argument 3 names different: declaration 'e2' definition 'k'.
+void be_code_member(bfuncinfo *finfo, bexpdesc *c, bexpdesc *k)
+                                                             ^
+src/be_debug.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_debug.c:180:10: style: The scope of the variable 'buf' can be reduced. [variableScope]
+    char buf[24];
+         ^
+src/be_debuglib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 25 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_exec.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 28 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_exec.c:51:17: style: struct member 'pparser::fname' is never used. [unusedStructMember]
+    const char *fname;
+                ^
+src/be_exec.c:52:13: style: struct member 'pparser::reader' is never used. [unusedStructMember]
+    breader reader;
+            ^
+src/be_exec.c:54:11: style: struct member 'pparser::islocal' is never used. [unusedStructMember]
+    bbyte islocal;
+          ^
+src/be_exec.c:68:12: style: struct member 'strbuf::len' is never used. [unusedStructMember]
+    size_t len;
+           ^
+src/be_exec.c:69:17: style: struct member 'strbuf::s' is never used. [unusedStructMember]
+    const char *s;
+                ^
+src/be_exec.c:73:11: style: struct member 'filebuf::fp' is never used. [unusedStructMember]
+    void *fp;
+          ^
+src/be_exec.c:74:10: style: struct member 'filebuf::buf' is never used. [unusedStructMember]
+    char buf[FILE_BUFFER_SIZE];
+         ^
+src/be_exec.c:265:9: style: Condition 'res' is always true [knownConditionTrueFalse]
+    if (res && res != BE_IO_ERROR && res != BE_EXCEPTION) {
+        ^
+src/be_exec.c:263:15: note: Assignment 'res=BE_SYNTAX_ERROR', assigned value is 4
+    int res = load_bytecode(vm, name);
+              ^
+src/be_exec.c:265:9: note: Condition 'res' is always true
+    if (res && res != BE_IO_ERROR && res != BE_EXCEPTION) {
+        ^
+src/be_exec.c:265:20: style: Condition 'res!=BE_IO_ERROR' is always true [knownConditionTrueFalse]
+    if (res && res != BE_IO_ERROR && res != BE_EXCEPTION) {
+                   ^
+src/be_exec.c:263:15: note: Assignment 'res=BE_SYNTAX_ERROR', assigned value is 4
+    int res = load_bytecode(vm, name);
+              ^
+src/be_exec.c:265:20: note: Condition 'res!=BE_IO_ERROR' is always true
+    if (res && res != BE_IO_ERROR && res != BE_EXCEPTION) {
+                   ^
+src/be_exec.c:265:42: style: Condition 'res!=BE_EXCEPTION' is always true [knownConditionTrueFalse]
+    if (res && res != BE_IO_ERROR && res != BE_EXCEPTION) {
+                                         ^
+src/be_exec.c:263:15: note: Assignment 'res=BE_SYNTAX_ERROR', assigned value is 4
+    int res = load_bytecode(vm, name);
+              ^
+src/be_exec.c:265:42: note: Condition 'res!=BE_EXCEPTION' is always true
+    if (res && res != BE_IO_ERROR && res != BE_EXCEPTION) {
+                                         ^
+src/be_filelib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_func.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_gc.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_gc.c:456:13: style: Condition 'obj' is always true [knownConditionTrueFalse]
+        if (obj && !gc_isdark(obj) && !gc_isconst(obj)) {
+            ^
+src/be_gc.c:454:18: note: Assuming that condition 'vm->gc.gray' is not redundant
+    while (vm->gc.gray) {
+                 ^
+src/be_gc.c:455:32: note: Assignment 'obj=vm->gc.gray', assigned value is 0
+        bgcobject *obj = vm->gc.gray;
+                               ^
+src/be_gc.c:456:13: note: Condition 'obj' is always true
+        if (obj && !gc_isdark(obj) && !gc_isconst(obj)) {
+            ^
+src/be_gclib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_globallib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_introspectlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 22 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_jsonlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_lexer.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_libs.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_list.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_listlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_listlib.c:37:9: style: The scope of the variable 'i' can be reduced. [variableScope]
+    int i, argc = be_top(vm);
+        ^
+src/be_map.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_maplib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 18 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_mathlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 19 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_mem.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 22 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_mem.c:69:21: style: Condition 'ptr==NULL' is always false [knownConditionTrueFalse]
+            if (ptr == NULL) { return NULL;     }
+                    ^
+src/be_mem.c:63:13: note: Assuming condition '!ptr' is false
+        if (!ptr || (old_size == 0)) {
+            ^
+src/be_mem.c:69:21: note: Condition 'ptr==NULL' is always false
+            if (ptr == NULL) { return NULL;     }
+                    ^
+src/be_mem.c:78:18: style: Condition 'new_size' is always true [knownConditionTrueFalse]
+        else if (new_size && old_size) {        // TODO we already know they are not null TODO
+                 ^
+src/be_mem.c:68:27: note: Assuming that condition 'new_size==0' is not redundant
+        else if (new_size == 0) {
+                          ^
+src/be_mem.c:78:18: note: Condition 'new_size' is always true
+        else if (new_size && old_size) {        // TODO we already know they are not null TODO
+                 ^
+src/be_mem.c:78:30: style: Condition 'old_size' is always true [knownConditionTrueFalse]
+        else if (new_size && old_size) {        // TODO we already know they are not null TODO
+                             ^
+src/be_mem.c:63:31: note: Assuming that condition 'old_size==0' is not redundant
+        if (!ptr || (old_size == 0)) {
+                              ^
+src/be_mem.c:78:30: note: Condition 'old_size' is always true
+        else if (new_size && old_size) {        // TODO we already know they are not null TODO
+                             ^
+src/be_mem.c:42:0: information: Skipping configuration 'BE_EXPLICIT_FREE' since the value of 'BE_EXPLICIT_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+    free(ptr);
+^
+src/be_mem.c:263:0: information: Skipping configuration 'BE_EXPLICIT_FREE' since the value of 'BE_EXPLICIT_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+        free(ptr);
+^
+src/be_mem.c:276:0: information: Skipping configuration 'BE_EXPLICIT_FREE' since the value of 'BE_EXPLICIT_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+            free(pool_to_freed);
+^
+src/be_mem.c:290:0: information: Skipping configuration 'BE_EXPLICIT_FREE' since the value of 'BE_EXPLICIT_FREE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+            free(pool_to_freed);
+^
+src/be_mem.c:37:0: information: Skipping configuration 'BE_EXPLICIT_MALLOC' since the value of 'BE_EXPLICIT_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+    return malloc(size);
+^
+src/be_mem.c:186:0: information: Skipping configuration 'BE_EXPLICIT_MALLOC' since the value of 'BE_EXPLICIT_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+        pool16 = (gc16_t*) malloc(sizeof(gc16_t));
+^
+src/be_mem.c:218:0: information: Skipping configuration 'BE_EXPLICIT_MALLOC' since the value of 'BE_EXPLICIT_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+        pool32 = (gc32_t*) malloc(sizeof(gc32_t));
+^
+src/be_mem.c:227:0: information: Skipping configuration 'BE_EXPLICIT_MALLOC' since the value of 'BE_EXPLICIT_MALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+    return malloc(size);    /* default to system malloc */
+^
+src/be_mem.c:47:0: information: Skipping configuration 'BE_EXPLICIT_REALLOC' since the value of 'BE_EXPLICIT_REALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+    return realloc(ptr, size);
+^
+src/be_mem.c:101:0: information: Skipping configuration 'BE_EXPLICIT_REALLOC' since the value of 'BE_EXPLICIT_REALLOC' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+                block = realloc(ptr, new_size);
+^
+src/be_module.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 23 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_module.c:376:17: style: Local variable 'type' shadows outer variable [shadowVariable]
+            int type = var_type(vm->top);
+                ^
+src/be_module.c:367:13: note: Shadowed declaration
+        int type = be_module_attr(vm, module, str_literal(vm, "setmember"), vm->top);
+            ^
+src/be_module.c:376:17: note: Shadow variable
+            int type = var_type(vm->top);
+                ^
+src/be_object.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_oslib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_oslib.c:90:19: style: The scope of the variable 'i' can be reduced. [variableScope]
+    int res = -1, i, argc = be_top(vm);
+                  ^
+src/be_parser.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 22 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_parser.c:72:10: style: struct member 'bparser::vm' is never used. [unusedStructMember]
+    bvm *vm;
+         ^
+src/be_parser.c:73:16: style: struct member 'bparser::finfo' is never used. [unusedStructMember]
+    bfuncinfo *finfo;
+               ^
+src/be_parser.c:74:15: style: struct member 'bparser::cl' is never used. [unusedStructMember]
+    bclosure *cl;
+              ^
+src/be_parser.c:75:11: style: struct member 'bparser::islocal' is never used. [unusedStructMember]
+    bbyte islocal;
+          ^
+src/be_rangelib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_repl.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_repl.c:98:28: style: Condition 'res==BE_EXIT' is always true [knownConditionTrueFalse]
+                return res == BE_EXIT ? be_toindex(vm, -1) : res;
+                           ^
+src/be_repl.c:97:17: note: Assuming condition 'res' is true
+            if (res) {
+                ^
+src/be_repl.c:98:28: note: Condition 'res==BE_EXIT' is always true
+                return res == BE_EXIT ? be_toindex(vm, -1) : res;
+                           ^
+src/be_solidifylib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 22 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_solidifylib.c:144:13: warning: %i in format string (no. 1) requires 'int' but the argument type is 'unsigned int'. [invalidPrintfArgType_sint]
+            snprintf(error, sizeof(error), "Unsupported type in key: %i", node->key.type);
+            ^
+src/be_strictlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_string.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 19 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_strlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_strlib.c:284:35: style: Same value in both branches of ternary operator. [duplicateValueTernary]
+        return sign == '-' ? -sum : sum;
+                                  ^
+src/be_strlib.c:258:12: style: The scope of the variable 'sign' can be reduced. [variableScope]
+    int c, sign;
+           ^
+src/be_strlib.c:403:54: style:inconclusive: Function 'be_strlcpy' argument 3 names different: declaration 'size' definition 'maxlen'. [funcArgNamesDifferent]
+size_t be_strlcpy(char *dst, const char *src, size_t maxlen)
+                                                     ^
+src/be_strlib.h:23:54: note: Function 'be_strlcpy' argument 3 names different: declaration 'size' definition 'maxlen'.
+size_t be_strlcpy(char *dst, const char *src, size_t size);
+                                                     ^
+src/be_strlib.c:403:54: note: Function 'be_strlcpy' argument 3 names different: declaration 'size' definition 'maxlen'.
+size_t be_strlcpy(char *dst, const char *src, size_t maxlen)
+                                                     ^
+src/be_syslib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_timelib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_undefinedlib.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_var.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 18 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_vector.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_vector.c:151:21: style:inconclusive: Function 'be_nextsize' argument 1 names different: declaration 'value' definition 'size'. [funcArgNamesDifferent]
+int be_nextsize(int size)
+                    ^
+src/be_vector.h:41:21: note: Function 'be_nextsize' argument 1 names different: declaration 'value' definition 'size'.
+int be_nextsize(int value);
+                    ^
+src/be_vector.c:151:21: note: Function 'be_nextsize' argument 1 names different: declaration 'value' definition 'size'.
+int be_nextsize(int size)
+                    ^
+src/be_vm.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 22 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+src/be_vm.c:961:21: style: Variable 'reg' is reassigned a value before the old one has been used. [redundantAssignment]
+                reg = vm->reg;
+                    ^
+src/be_vm.c:956:25: note: reg is assigned
+                    reg = vm->reg;
+                        ^
+src/be_vm.c:961:21: note: reg is overwritten
+                reg = vm->reg;
+                    ^
+src/be_vm.c:978:21: style: Variable 'reg' is reassigned a value before the old one has been used. [redundantAssignment]
+                reg = vm->reg;
+                    ^
+src/be_vm.c:973:25: note: reg is assigned
+                    reg = vm->reg;
+                        ^
+src/be_vm.c:978:21: note: reg is overwritten
+                reg = vm->reg;
+                    ^
+src/be_vm.c:1200:17: style: Consecutive return, break, continue, goto or throw statements are unnecessary. [duplicateBreak]
+                break;
+                ^
+src/be_var.c:163:0: style: The function 'be_bulitin_release_space' is never used. [unusedFunction]
+
+^
+src/be_class.c:116:0: style: The function 'be_class_closure_count' is never used. [unusedFunction]
+
+^
+src/be_object.c:76:0: style: The function 'be_commonobj_destroy_generic' is never used. [unusedFunction]
+
+^
+src/be_mem.c:339:0: style: The function 'be_gc_memory_pools_info' is never used. [unusedFunction]
+
+^
+src/be_gc.c:116:0: style: The function 'be_gc_unfix' is never used. [unusedFunction]
+
+^
+src/be_vm.c:1357:0: style: The function 'be_get_ctype_func_hanlder' is never used. [unusedFunction]
+
+^
+src/be_api.c:598:0: style: The function 'be_getglobal' is never used. [unusedFunction]
+
+^
+src/be_module.c:291:0: style: The function 'be_getmodule' is never used. [unusedFunction]
+
+^
+src/be_api.c:765:0: style: The function 'be_getupval' is never used. [unusedFunction]
+
+^
+src/be_api.c:175:0: style: The function 'be_isclosure' is never used. [unusedFunction]
+
+^
+src/be_api.c:260:0: style: The function 'be_iscomobj' is never used. [unusedFunction]
+
+^
+src/be_api.c:1161:0: style: The function 'be_isge' is never used. [unusedFunction]
+
+^
+src/be_api.c:1155:0: style: The function 'be_isgt' is never used. [unusedFunction]
+
+^
+src/be_api.c:1149:0: style: The function 'be_isle' is never used. [unusedFunction]
+
+^
+src/be_api.c:230:0: style: The function 'be_islistinstance' is never used. [unusedFunction]
+
+^
+src/be_api.c:1143:0: style: The function 'be_islt' is never used. [unusedFunction]
+
+^
+src/be_api.c:225:0: style: The function 'be_ismapinstance' is never used. [unusedFunction]
+
+^
+src/be_api.c:181:0: style: The function 'be_isntvclos' is never used. [unusedFunction]
+
+^
+src/be_api.c:193:0: style: The function 'be_isproto' is never used. [unusedFunction]
+
+^
+src/be_list.c:184:0: style: The function 'be_list_pool_alloc' is never used. [unusedFunction]
+
+^
+src/be_list.c:199:0: style: The function 'be_list_pool_free' is never used. [unusedFunction]
+
+^
+src/be_list.c:176:0: style: The function 'be_list_pool_init' is never used. [unusedFunction]
+
+^
+src/be_map.c:326:0: style: The function 'be_map_removestr' is never used. [unusedFunction]
+
+^
+src/be_map.c:343:0: style: The function 'be_map_val2node' is never used. [unusedFunction]
+
+^
+src/be_mem.c:124:0: style: The function 'be_move_to_aligned' is never used. [unusedFunction]
+
+^
+src/be_object.c:49:0: style: The function 'be_newcomobj' is never used. [unusedFunction]
+
+^
+src/be_mem.c:45:0: style: The function 'be_os_realloc' is never used. [unusedFunction]
+
+^
+src/be_api.c:396:0: style: The function 'be_pushclosure' is never used. [unusedFunction]
+
+^
+src/be_api.c:429:0: style: The function 'be_pushntvclass' is never used. [unusedFunction]
+
+^
+src/be_vm.c:1352:0: style: The function 'be_set_ctype_func_hanlder' is never used. [unusedFunction]
+
+^
+src/be_vm.c:1344:0: style: The function 'be_set_obs_hook' is never used. [unusedFunction]
+
+^
+src/be_api.c:461:0: style: The function 'be_setsuper' is never used. [unusedFunction]
+
+^
+src/be_string.c:310:0: style: The function 'be_str_setextra' is never used. [unusedFunction]
+
+^
+src/be_exec.c:103:0: style: The function 'be_throw_message' is never used. [unusedFunction]
+
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
